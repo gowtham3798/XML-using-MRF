@@ -1,0 +1,42 @@
+1.Solving problems using array functions on rest countries data.
+Get all the countries from Asia continent /region using Filter function
+Get all the countries with a population of less than 2 lakhs using Filter function
+Print the following details name, capital, flag using forEach function
+Print the total population of countries using reduce function
+Print the country which uses US Dollars as currency.
+
+
+
+let xhr = new XMLHttpRequest();
+xhr.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json")
+xhr.onload=function(){
+  if(xhr.status>=200 && xhr.status<300){
+    var t=JSON.parse(this.response)
+    //console.log(t)
+  }
+    const newLocal = "Asia";
+    country = t.filter((key)=>key.region==newLocal)
+    console.log(country)
+    
+    const newLocal1 = 200000;
+     country = t.filter((key)=>key.population<newLocal1)
+     console.log(country)
+    
+     t.forEach(element =>console.log
+      (`Name : ${element.name}
+    Capital : ${element.capital}
+    Flag : ${element.flag}
+    ${element.currencies[0].name}
+    `));
+    
+    const Totalpopulation=t.reduce(function (acc, obj) { return acc + obj.population; }, 0
+      )
+    console.log(Totalpopulation)
+    
+    const newLocal2 = "United States dollar"
+      money=t.filter((key)=>(key.currencies[0].name==newLocal2))
+      console.log(money)
+  }
+  xhr.send();
+
+ 
